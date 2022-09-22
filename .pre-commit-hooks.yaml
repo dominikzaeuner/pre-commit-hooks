@@ -1,6 +1,12 @@
 ---
 # This file tells pre-commit which hooks are provided by this repo
 
+- id: clazy
+  name: clazy
+  entry: hurzelchen-clazy
+  description: KDE/clazy - Qt-oriented static code analyzer based on the Clang framework
+  types_or: [c++]
+  language: python
 - id: include-what-you-use
   name: include-what-you-use
   entry: hurzelchen-include-what-you-use
