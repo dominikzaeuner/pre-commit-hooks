@@ -7,9 +7,9 @@ from .utils import StaticAnalyzerCmd
 
 
 class ClazyCmd(StaticAnalyzerCmd):
-    """Class for the clazy-standalone command."""
+    """Class for the clazy command."""
 
-    command = "clazy-standalone"
+    command = "clazy"
     lookbehind = "clazy version "
 
     def __init__(self, args: List[str]):
@@ -17,9 +17,9 @@ class ClazyCmd(StaticAnalyzerCmd):
         self.parse_args(args)
 
     def run(self):
-        """Run clazy-standalone."""
+        """Run clazy only compiling outputting to /dev/null."""
         for filename in self.files:
-            self.run_command(self.args + [filename])
+            self.run_command(self.args + ['-c', filename, '-o/dev/null'])
             self.exit_on_error()
 
 
