@@ -20,6 +20,9 @@ class ClazyCmd(StaticAnalyzerCmd):
         """Run clazy only compiling outputting to /dev/null."""
         for filename in self.files:
             self.run_command(self.args + ['-c', filename, '-o/dev/null'])
+            # Fail if clazy wrote output to stderr, as it only creates warnings
+            if len(self.stderr) > 0:
+                self.returncode = 1
             self.exit_on_error()
 
 
