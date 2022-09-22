@@ -1,0 +1,9 @@
+---
+# This file tells pre-commit which hooks are provided by this repo
+
+- id: include-what-you-use
+  name: include-what-you-use
+  entry: include-what-you-use-hook
+  description: Runs Include-What-You-Use (iwyu) on C/C++ code
+  types_or:  [c, c++, c#, objective-c, cuda]
+  language: python
